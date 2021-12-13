@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 
 @Entity
@@ -18,6 +20,7 @@ public class Contact {
 	private String name;
 	private String email;
 	private String phone;
+	@JsonBackReference
 	@ManyToOne
 	private User user;
 	public Contact() {

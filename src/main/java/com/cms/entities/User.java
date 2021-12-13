@@ -22,6 +22,8 @@ import javax.validation.constraints.Size;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 
 
@@ -46,7 +48,7 @@ public class User implements UserDetails {
 	 
 	 @Size(min=6,message="Password must contain atleast 6 characters.")
 	 private String password;
-	 
+	 @JsonManagedReference
 	 @OneToMany(cascade= CascadeType.ALL, fetch= FetchType.LAZY, mappedBy = "user", orphanRemoval = true)
 	 private List<Contact> contacts= new ArrayList<>();
 
